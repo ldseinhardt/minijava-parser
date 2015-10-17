@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Cria uma pasta temporaria
+mkdir tmp
+cd tmp
+
+# Gera o parser no javacc
+javacc ../MiniJava.jj
+
+# Compila o parser
+javac *.java
+
+# Executa o parser
+java MiniJava ../$1
+
+# Apaga a pasta temporaria
+cd ../
+rm -rf tmp
+
+exit
